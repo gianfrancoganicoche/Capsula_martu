@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi Cápsula de Moda</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f5f0e8;
+    --warm-white: #faf8f4;
+    --dusty-rose: #e8c4b8;
+    --blush: #f0d8d0;
+    --camel: #c4a882;
+    --dark: #1e1a16;
+    --mid: #6b5c4e;
+    --light-text: #a89880;
+    --leopard: #d4a84b;
+    --accent-pink: #d4748a;
+  }
+
+- { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+background: var(–warm-white);
+font-family: ‘DM Sans’, sans-serif;
+color: var(–dark);
+overflow-x: hidden;
+}
+
+/* HEADER */
+.hero {
+background: var(–dark);
+color: var(–cream);
+padding: 60px 24px 48px;
+text-align: center;
+position: relative;
+overflow: hidden;
+}
+
+.hero::before {
+content: ‘’;
+position: absolute;
+inset: 0;
+background: radial-gradient(ellipse at 30% 50%, rgba(196,168,130,0.15) 0%, transparent 60%),
+radial-gradient(ellipse at 70% 20%, rgba(212,116,138,0.1) 0%, transparent 50%);
+}
+
+.hero-label {
+font-size: 0.65rem;
+letter-spacing: 0.3em;
+text-transform: uppercase;
+color: var(–camel);
+margin-bottom: 16px;
+position: relative;
+}
+
+.hero h1 {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: clamp(2.8rem, 8vw, 4.5rem);
+font-weight: 300;
+line-height: 1.1;
+position: relative;
+}
+
+.hero h1 em {
+font-style: italic;
+color: var(–dusty-rose);
+}
+
+.hero-sub {
+margin-top: 16px;
+font-size: 0.82rem;
+color: var(–light-text);
+font-weight: 300;
+letter-spacing: 0.05em;
+position: relative;
+}
+
+.hero-divider {
+width: 40px;
+height: 1px;
+background: var(–camel);
+margin: 24px auto 0;
+position: relative;
+}
+
+/* MAIN */
+.container { max-width: 740px; margin: 0 auto; padding: 0 20px; }
+
+/* STYLE DNA */
+.style-dna {
+padding: 48px 0 32px;
+}
+
+.section-label {
+font-size: 0.62rem;
+letter-spacing: 0.28em;
+text-transform: uppercase;
+color: var(–camel);
+margin-bottom: 8px;
+}
+
+.section-title {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 2rem;
+font-weight: 400;
+color: var(–dark);
+margin-bottom: 20px;
+}
+
+.dna-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 10px;
+margin-top: 20px;
+}
+
+.dna-card {
+background: var(–cream);
+border-radius: 12px;
+padding: 18px 14px;
+text-align: center;
+}
+
+.dna-emoji { font-size: 1.5rem; margin-bottom: 8px; }
+
+.dna-title {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 0.95rem;
+font-weight: 600;
+color: var(–dark);
+margin-bottom: 4px;
+}
+
+.dna-desc {
+font-size: 0.72rem;
+color: var(–mid);
+line-height: 1.4;
+}
+
+/* PALETA */
+.palette-section { padding: 32px 0; }
+
+.palette-row {
+display: flex;
+gap: 8px;
+margin-top: 16px;
+flex-wrap: wrap;
+}
+
+.swatch {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 6px;
+}
+
+.swatch-circle {
+width: 48px;
+height: 48px;
+border-radius: 50%;
+border: 2px solid rgba(0,0,0,0.06);
+}
+
+.swatch-name {
+font-size: 0.62rem;
+color: var(–mid);
+text-align: center;
+max-width: 52px;
+line-height: 1.3;
+}
+
+.palette-note {
+margin-top: 14px;
+font-size: 0.8rem;
+color: var(–mid);
+background: var(–cream);
+padding: 12px 16px;
+border-radius: 8px;
+border-left: 3px solid var(–dusty-rose);
+line-height: 1.5;
+}
+
+/* CAPSULE GRID */
+.capsule-section { padding: 32px 0; }
+
+.category-block { margin-bottom: 36px; }
+
+.category-header {
+display: flex;
+align-items: center;
+gap: 12px;
+margin-bottom: 14px;
+padding-bottom: 10px;
+border-bottom: 1px solid #e8e0d4;
+}
+
+.cat-icon {
+width: 32px;
+height: 32px;
+border-radius: 8px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 0.9rem;
+flex-shrink: 0;
+}
+
+.cat-title {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1.2rem;
+font-weight: 600;
+}
+
+.cat-count {
+margin-left: auto;
+font-size: 0.68rem;
+color: var(–light-text);
+letter-spacing: 0.1em;
+text-transform: uppercase;
+}
+
+.items-grid {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 8px;
+}
+
+.item-card {
+background: white;
+border: 1px solid #ede6db;
+border-radius: 10px;
+padding: 12px 14px;
+display: flex;
+align-items: flex-start;
+gap: 10px;
+}
+
+.item-status {
+width: 8px;
+height: 8px;
+border-radius: 50%;
+flex-shrink: 0;
+margin-top: 5px;
+}
+
+.status-have { background: #7aaa85; }
+.status-need { background: var(–accent-pink); }
+.status-hero { background: var(–leopard); }
+
+.item-name {
+font-size: 0.85rem;
+font-weight: 500;
+color: var(–dark);
+line-height: 1.3;
+}
+
+.item-note {
+font-size: 0.72rem;
+color: var(–light-text);
+margin-top: 2px;
+line-height: 1.3;
+}
+
+.item-tag {
+font-size: 0.6rem;
+letter-spacing: 0.06em;
+text-transform: uppercase;
+padding: 2px 7px;
+border-radius: 20px;
+margin-left: auto;
+flex-shrink: 0;
+align-self: flex-start;
+font-weight: 600;
+}
+
+.tag-keep { background: #e8f5e0; color: #3a7030; }
+.tag-sumar { background: #ffe4eb; color: #a03060; }
+.tag-hero { background: #fff3dc; color: #9a6010; }
+
+/* LEGEND */
+.legend {
+display: flex;
+gap: 16px;
+margin-bottom: 20px;
+flex-wrap: wrap;
+}
+
+.legend-item {
+display: flex;
+align-items: center;
+gap: 6px;
+font-size: 0.75rem;
+color: var(–mid);
+}
+
+.legend-dot {
+width: 8px;
+height: 8px;
+border-radius: 50%;
+}
+
+/* OUTFITS */
+.outfits-section { padding: 32px 0; }
+
+.outfit-card {
+background: white;
+border: 1px solid #ede6db;
+border-radius: 14px;
+padding: 20px;
+margin-bottom: 12px;
+}
+
+.outfit-header {
+display: flex;
+align-items: center;
+gap: 10px;
+margin-bottom: 14px;
+}
+
+.outfit-occasion {
+font-size: 0.6rem;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+color: white;
+padding: 3px 10px;
+border-radius: 20px;
+font-weight: 600;
+}
+
+.occ-oficina { background: var(–dark); }
+.occ-homeoffice { background: var(–camel); }
+.occ-salida { background: var(–accent-pink); }
+
+.outfit-title {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1.05rem;
+font-weight: 600;
+}
+
+.outfit-pieces {
+display: flex;
+flex-wrap: wrap;
+gap: 6px;
+margin-bottom: 10px;
+}
+
+.piece-pill {
+font-size: 0.75rem;
+padding: 4px 12px;
+border-radius: 20px;
+background: var(–cream);
+color: var(–mid);
+}
+
+.piece-pill.star { background: #fff3dc; color: #9a6010; }
+
+.outfit-tip {
+font-size: 0.78rem;
+color: var(–mid);
+line-height: 1.5;
+border-top: 1px solid #f0e8dc;
+padding-top: 10px;
+margin-top: 4px;
+}
+
+/* SHOPPING */
+.shopping-section {
+background: var(–dark);
+color: var(–cream);
+border-radius: 20px;
+padding: 32px 24px;
+margin: 32px 0;
+}
+
+.shopping-title {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1.6rem;
+font-weight: 300;
+margin-bottom: 6px;
+color: var(–cream);
+}
+
+.shopping-sub {
+font-size: 0.78rem;
+color: var(–light-text);
+margin-bottom: 24px;
+}
+
+.priority-list { display: flex; flex-direction: column; gap: 10px; }
+
+.priority-item {
+display: flex;
+align-items: flex-start;
+gap: 14px;
+background: rgba(255,255,255,0.05);
+border: 1px solid rgba(255,255,255,0.08);
+border-radius: 10px;
+padding: 14px;
+}
+
+.priority-num {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1.4rem;
+font-weight: 300;
+color: var(–camel);
+line-height: 1;
+min-width: 24px;
+}
+
+.priority-content { flex: 1; }
+
+.priority-name {
+font-weight: 500;
+font-size: 0.9rem;
+color: var(–cream);
+margin-bottom: 3px;
+}
+
+.priority-why {
+font-size: 0.76rem;
+color: #a09080;
+line-height: 1.4;
+}
+
+.priority-price {
+font-size: 0.7rem;
+color: var(–camel);
+font-weight: 500;
+white-space: nowrap;
+align-self: center;
+}
+
+/* CLOSET TIPS */
+.tips-section { padding: 32px 0 48px; }
+
+.tip-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; }
+
+.tip-card {
+background: var(–cream);
+border-radius: 12px;
+padding: 16px;
+}
+
+.tip-card-title {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1rem;
+font-weight: 600;
+margin-bottom: 6px;
+color: var(–dark);
+}
+
+.tip-card-text {
+font-size: 0.78rem;
+color: var(–mid);
+line-height: 1.5;
+}
+
+/* DIVIDER */
+.fancy-divider {
+text-align: center;
+margin: 8px 0;
+color: var(–camel);
+font-size: 0.7rem;
+letter-spacing: 0.3em;
+}
+
+@media (max-width: 480px) {
+.dna-grid { grid-template-columns: 1fr 1fr; }
+.items-grid { grid-template-columns: 1fr; }
+.tip-grid { grid-template-columns: 1fr; }
+}
+</style>
+
+</head>
+<body>
+
+<div class="hero">
+  <p class="hero-label">Cápsula personalizada · 2025</p>
+  <h1>Tu guardarropa,<br><em>editado.</em></h1>
+  <p class="hero-sub">Basado en tus looks reales — femenino, arreglado, con personalidad</p>
+  <div class="hero-divider"></div>
+</div>
+
+<div class="container">
+
+  <!-- STYLE DNA -->
+
+  <div class="style-dna">
+    <p class="section-label">Lo que veo en tus fotos</p>
+    <h2 class="section-title">Tu ADN de estilo</h2>
+    <p style="font-size:0.85rem;color:var(--mid);line-height:1.6">Analizando tus 20+ looks, tu estilo ya tiene una identidad muy clara. No necesitás empezar de cero — necesitás editar y enfocar lo que ya tenés.</p>
+
+```
+<div class="dna-grid">
+  <div class="dna-card">
+    <div class="dna-emoji">👖</div>
+    <div class="dna-title">Wide leg</div>
+    <div class="dna-desc">Es tu silueta. Todos tus jeans y pantalones son wide leg o flare — y te quedan increíble.</div>
+  </div>
+  <div class="dna-card">
+    <div class="dna-emoji">🐆</div>
+    <div class="dna-title">Animal print</div>
+    <div class="dna-desc">Aparece en 6+ looks. Es tu firma personal — no lo eliminés, es lo que te hace única.</div>
+  </div>
+  <div class="dna-card">
+    <div class="dna-emoji">🧥</div>
+    <div class="dna-title">El blazer negro</div>
+    <div class="dna-desc">Tu pieza más versátil. Aparece sobre vestidos, crops, camisetas — lo usás genial.</div>
+  </div>
+  <div class="dna-card">
+    <div class="dna-emoji">🌸</div>
+    <div class="dna-title">Femenino + cool</div>
+    <div class="dna-desc">Rosa con volados + jeans. Vestido floral + zapatillas. Esa mezcla ES tu estilo.</div>
+  </div>
+  <div class="dna-card">
+    <div class="dna-emoji">🧣</div>
+    <div class="dna-title">El accesorio statement</div>
+    <div class="dna-desc">La bufanda multicolor es un recurso que usás bien. Los accesorios son el 40% de tus looks.</div>
+  </div>
+  <div class="dna-card">
+    <div class="dna-emoji">🦺</div>
+    <div class="dna-title">Chalecos y capas</div>
+    <div class="dna-desc">Chaleco negro, de tweed, tejido. Te encanta layering — esto eleva cualquier look básico.</div>
+  </div>
+</div>
+```
+
+  </div>
+
+  <div class="fancy-divider">— ✦ —</div>
+
+  <!-- PALETA -->
+
+  <div class="palette-section">
+    <p class="section-label">Tu nueva paleta</p>
+    <h2 class="section-title">Colores base</h2>
+    <p style="font-size:0.85rem;color:var(--mid);line-height:1.6;margin-bottom:4px">Simplificá a estos neutros para que todo combine entre sí. Los estampados (leopardo, flores, rayas) funcionan como el color.</p>
+
+```
+<div class="palette-row">
+  <div class="swatch">
+    <div class="swatch-circle" style="background:#1e1a16"></div>
+    <div class="swatch-name">Negro profundo</div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-circle" style="background:#f5f0e8"></div>
+    <div class="swatch-name">Crema / off white</div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-circle" style="background:#c4a882"></div>
+    <div class="swatch-name">Camel</div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-circle" style="background:#8a9db5"></div>
+    <div class="swatch-name">Denim medio</div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-circle" style="background:#e8c4b8"></div>
+    <div class="swatch-name">Blush / rosa palo</div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-circle" style="background:#d4a84b;border:2px solid #c49030"></div>
+    <div class="swatch-name">Leopardo ⭐</div>
+  </div>
+</div>
+
+<div class="palette-note">
+  🎯 <strong>Regla práctica:</strong> Base neutra (negro, crema, denim) + una pieza con personalidad (leopardo, volados, estampado). Nunca más de 3 colores por look.
+</div>
+```
+
+  </div>
+
+  <div class="fancy-divider">— ✦ —</div>
+
+  <!-- CAPSULE PRENDAS -->
+
+  <div class="capsule-section">
+    <p class="section-label">Lo que quedás, lo que sumás</p>
+    <h2 class="section-title">Las 30 prendas de tu cápsula</h2>
+
+```
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:#7aaa85"></div> Ya tenés — conservar</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--accent-pink)"></div> Falta — sumar</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--leopard)"></div> Héroe — pieza estrella</div>
+</div>
+
+<!-- PANTALONES -->
+<div class="category-block">
+  <div class="category-header">
+    <div class="cat-icon" style="background:#e8f0ff">👖</div>
+    <span class="cat-title">Pantalones & Faldas</span>
+    <span class="cat-count">6 prendas</span>
+  </div>
+  <div class="items-grid">
+    <div class="item-card">
+      <div class="item-status status-hero"></div>
+      <div>
+        <div class="item-name">Jeans wide leg celeste</div>
+        <div class="item-note">Tu prenda más usada. No toques nada.</div>
+      </div>
+      <span class="item-tag tag-hero">héroe</span>
+    </div>
+    <div class="item-card">
+      <div class="item-status status-have"></div>
+      <div>
+        <div class="item-name">Pantalón wide leg negro</div>
+        <div class="item-note">Ideal para oficina y salidas nocturnas</div>
+      </div>
+      <span class="item-tag tag-keep">tenés</span>
+    </div>
+    <div class="item-card">
+      <div class="item-status status-hero"></div>
+      <div>
+        <div class="item-name">Pantalón leopardo wide leg</div>
+        <div class="item-note">Tu firma. Usalo más seguido.</div>
+      </div>
+      <span class="item-tag tag-hero">héroe</span>
+    </div>
+    <div class="item-card">
+      <div class="item-status status-have"></div>
+      <div>
+        <div class="item-name">Falda midi leopardo</div>
+        <div class="item-note">Versión más formal del estampado</div>
+      </div>
+      <span class="item-tag tag-keep">tenés</span>
+    </div>
+    <div class="item-card">
+      <div class="item-status status-need"></div>
+      <div>
+        <div class="item-name">Falda midi crema / beige</div>
+        <div class="item-note">Para combinar con blazer en oficina</div>
+      </div>
+      <span class="item-tag tag-sumar">sumar</span>
+    </div>
+    <div class="item-card">
+      <div class="item-status status-have"></div>
+      <div>
+        <div class="item-name">Mini falda blanca denim</div>
+        <div class="item-note">Para salidas de verano/weekend</div>
+      </div>
+      <span class="item-tag tag-keep">tenés</span>
+    </div>
+  </div>
+</div>
+
+<!-- TOPS -->
+<div class="category-block">
+  <div class="category-header">
+    <div class="cat-icon" style="background:#fff0f5">👚</div>
+    <span class="cat-title">Tops & Blusas</span>
+    <span class="cat-count">8 prendas</span>
+  </div>
+  <div class="items-grid">
+    <div class="item-card">
+      <div class="item-status status-hero"></div>
+      <div>
+        <div class="item-name">Blusa rosa con volados</div>
+        <div class="item-note">Tu prenda más femenina y característica</div>
+      </div>
+      <span class="item-tag tag-hero">héroe</span>
+    </div>
+    <div class="item-card">
+      <div class="item-status status-have"></div>
+      <div>
+        <div class="item-name">Camisa blanca oversize</div>
+        <div class="item-note">Base perfecta, muy versátil</div>
+      </div>
+      <span class="item-tag tag-keep">tenés</span>
+    </div>
+    <div class="item-card">
+      <div class="item-status status-have"></div>
+      <div>
+        <div class="item-name">Crop top gris y negro</div>
+        <div class="item-note">Para layering bajo blazer o cardigan</div>
+      </div>
+      <span class="item-tag tag-keep">tenés</span>
+    </div>
+    <div class="item-card">
+      <div class="item-status status-have"></div>
+      <div>
+        <div class="item-name">Crop top beige/nude</div>
+        <div class="item-note">Funciona con todo, base neutra</div>
+      </div>
+      <span class="item-tag tag-keep">tenés</span>
+    </div>
+    <div class="item-card">
+      <div class="item-status status-need"></div>
+      <div>
+        <div class="item-name">Blusa de seda o satén blanca</div>
+        <div class="item-note">Eleva el blazer para oficina real</div>
+      </div>
+      <span class="item-tag tag-sumar">sumar</span>
+    </div>
+    <div class="item-card">
+      <div class="item-status status-need"></div>
+      <div>
+        <div class="item-name">Body o blusa crema/rosada</div>
+        <div class="item-note">Para looks de oficina más femeninos</div>
+      </div>
+      <span class="item-tag tag-sumar">sumar</span>
+    </div>
+    <div class="item-card">
+      <div class="item-status status-have"></div>
+      <div>
+        <div class="item-name">Remera rayada navy/blanca</div>
+        <div class="item-note">Clásico francés, muy combinable</div>
+      </div>
+      <span class="item-tag tag-keep">tenés</span>
+    </div>
+    <div class="item-card">
+      <div class="item-status status-have"></div>
+      <div>
+        <div class="item-name">Camiseta blanca básica</div>
+        <div class="item-note">La base de todo. Siempre necesitás más.</div>
+      </div>
+      <span class="item-tag tag-keep">tenés</span>
+    </div>
+  </div>
+</div>
+
+<!-- CAPAS -->
+<div class="category-block">
+  <div class="category-header">
+    <div class="cat-icon" style="background:#f5f0e8">🧥</div>
+    <span class="cat-title">Capas & Abrigos</span>
+    <span class="cat-count">7 prendas</span>
+  </div>
+  <div class="items-grid">
+    <div class="item-card">
+      <div class="item-status status-hero"></div>
+      <div>
+        <div class="item-name">Blazer negro doble botonadura</div>
+        <div class="item-note">Tu pieza más usada. El corazón de la cápsula.</div>
+      </div>
+      <span class="item-tag tag-hero">héroe</span>
+    </div>
+    <div class="item-card">
+      <div class="item-status status-need"></div>
+      <div>
+        <div class="item-name">Blazer camel o beige</div>
+        <div class="item-note">Prioridad #1 para comprar. Cambia todo.</div>
+      </div>
+      <span class="item-tag tag-sumar">sumar</span>
+    </div>
+    <div class="item-card">
+      <div class="item-status status-have"></div>
+      <div>
+        <div class="item-name">Cardigan crema chunky</div>
+        <div class="item-note">Perfecto sobre crop para home office</div>
+      </div>
+      <span class="item-tag tag-keep">tenés</span>
+    </div>
+    <div class="item-card">
+      <div class="item-status status-have"></div>
+      <div>
+        <div class="item-name">Chaleco tweed crema</div>
+        <div class="item-note">Muy oficina, estilo Chanel. Guardalo.</div>
+      </div>
+      <span class="item-tag tag-keep">tenés</span>
+    </div>
+    <div class="item-card">
+      <div class="item-status status-have"></div>
+      <div>
+        <div class="item-name">Chaleco negro</div>
+        <div class="item-note">Pieza edgy, para salidas y weekend</div>
+      </div>
+      <span class="item-tag tag-keep">tenés</span>
+    </div>
+    <div class="item-card">
+      <div class="item-status status-have"></div>
+      <div>
+        <div class="item-name">Campera de cuero negra</div>
+        <div class="item-note">Statement de invierno, muy versátil</div>
+      </div>
+      <span class="item-tag tag-keep">tenés</span>
+    </div>
+    <div class="item-card">
+      <div class="item-status status-have"></div>
+      <div>
+        <div class="item-name">Abrigo largo beige/crema</div>
+        <div class="item-note">Para oficina formal en días fríos</div>
+      </div>
+      <span class="item-tag tag-keep">tenés</span>
+    </div>
+  </div>
+</div>
+
+<!-- VESTIDOS -->
+<div class="category-block">
+  <div class="category-header">
+    <div class="cat-icon" style="background:#f5f0ff">👗</div>
+    <span class="cat-title">Vestidos</span>
+    <span class="cat-count">3 prendas</span>
+  </div>
+  <div class="items-grid">
+    <div class="item-card">
+      <div class="item-status status-have"></div>
+      <div>
+        <div class="item-name">Vestido maxi estampado rosa</div>
+        <div class="item-note">Para salidas especiales y verano</div>
+      </div>
+      <span class="item-tag tag-keep">tenés</span>
+    </div>
+    <div class="item-card">
+      <div class="item-status status-have"></div>
+      <div>
+        <div class="item-name">Vestido/falda floral crema con volados</div>
+        <div class="item-note">Con blazer negro, look de 10 para oficina</div>
+      </div>
+      <span class="item-tag tag-keep">tenés</span>
+    </div>
+    <div class="item-card">
+      <div class="item-status status-need"></div>
+      <div>
+        <div class="item-name">Vestido negro midi simple</div>
+        <div class="item-note">El comodín que falta. Con blazer o solo.</div>
+      </div>
+      <span class="item-tag tag-sumar">sumar</span>
+    </div>
+  </div>
+</div>
+
+<!-- CALZADO -->
+<div class="category-block">
+  <div class="category-header">
+    <div class="cat-icon" style="background:#f0fff0">👟</div>
+    <span class="cat-title">Calzado</span>
+    <span class="cat-count">6 pares</span>
+  </div>
+  <div class="items-grid">
+    <div class="item-card">
+      <div class="item-status status-have"></div>
+      <div>
+        <div class="item-name">Zapatillas blancas</div>
+        <div class="item-note">Tu base, las usás en todo</div>
+      </div>
+      <span class="item-tag tag-keep">tenés</span>
+    </div>
+    <div class="item-card">
+      <div class="item-status status-have"></div>
+      <div>
+        <div class="item-name">Botines negros</div>
+        <div class="item-note">Para invierno y looks más arreglados</div>
+      </div>
+      <span class="item-tag tag-keep">tenés</span>
+    </div>
+    <div class="item-card">
+      <div class="item-status status-need"></div>
+      <div>
+        <div class="item-name">Loafers negros o camel</div>
+        <div class="item-note">Prioridad #2. Transforman el look de oficina.</div>
+      </div>
+      <span class="item-tag tag-sumar">sumar</span>
+    </div>
+    <div class="item-card">
+      <div class="item-status status-need"></div>
+      <div>
+        <div class="item-name">Kitten heels o mules</div>
+        <div class="item-note">Comodidad + elegancia para oficina</div>
+      </div>
+      <span class="item-tag tag-sumar">sumar</span>
+    </div>
+    <div class="item-card">
+      <div class="item-status status-have"></div>
+      <div>
+        <div class="item-name">Sandalias blancas</div>
+        <div class="item-note">Para verano y looks florales</div>
+      </div>
+      <span class="item-tag tag-keep">tenés</span>
+    </div>
+    <div class="item-card">
+      <div class="item-status status-need"></div>
+      <div>
+        <div class="item-name">Zapatillas plateadas o metálicas</div>
+        <div class="item-note">Ya empezaste a usarlas — sumá un par bueno</div>
+      </div>
+      <span class="item-tag tag-sumar">sumar</span>
+    </div>
+  </div>
+</div>
+```
+
+  </div>
+
+  <div class="fancy-divider">— ✦ —</div>
+
+  <!-- OUTFITS -->
+
+  <div class="outfits-section">
+    <p class="section-label">7 looks listos para usar</p>
+    <h2 class="section-title">Tu semana armada</h2>
+    <p style="font-size:0.85rem;color:var(--mid);line-height:1.6;margin-bottom:20px">Con lo que ya tenés, podés armar estos 7 outfits sin comprar nada nuevo.</p>
+
+```
+<div class="outfit-card">
+  <div class="outfit-header">
+    <span class="outfit-occasion occ-oficina">Lunes · Oficina</span>
+    <span class="outfit-title">Power look</span>
+  </div>
+  <div class="outfit-pieces">
+    <span class="piece-pill star">Blazer negro</span>
+    <span class="piece-pill">Blusa rosa volados</span>
+    <span class="piece-pill">Pantalón negro wide</span>
+    <span class="piece-pill">Botines negros</span>
+    <span class="piece-pill">Mini cartera</span>
+  </div>
+  <div class="outfit-tip">✨ El blazer sobre la blusa rosa rompe el look monocromático. Añadí un collar delgado dorado.</div>
+</div>
+
+<div class="outfit-card">
+  <div class="outfit-header">
+    <span class="outfit-occasion occ-homeoffice">Martes · Home Office</span>
+    <span class="outfit-title">Cómoda pero arreglada</span>
+  </div>
+  <div class="outfit-pieces">
+    <span class="piece-pill">Cardigan crema</span>
+    <span class="piece-pill">Crop top beige</span>
+    <span class="piece-pill star">Jeans wide leg celeste</span>
+    <span class="piece-pill">Zapatillas blancas</span>
+  </div>
+  <div class="outfit-tip">✨ El cardigan hace el trabajo de "arreglar" sin esfuerzo. Perfecto para videollamadas.</div>
+</div>
+
+<div class="outfit-card">
+  <div class="outfit-header">
+    <span class="outfit-occasion occ-oficina">Miércoles · Oficina</span>
+    <span class="outfit-title">Estilo Chanel</span>
+  </div>
+  <div class="outfit-pieces">
+    <span class="piece-pill star">Chaleco tweed crema</span>
+    <span class="piece-pill">Blusa blanca simple</span>
+    <span class="piece-pill">Pantalón negro wide</span>
+    <span class="piece-pill">Botines negros</span>
+    <span class="piece-pill">Perlas o aritos dorados</span>
+  </div>
+  <div class="outfit-tip">✨ El chaleco tweed es tu prenda más subutilizada. Con este look vas a recibir muchos comentarios.</div>
+</div>
+
+<div class="outfit-card">
+  <div class="outfit-header">
+    <span class="outfit-occasion occ-homeoffice">Jueves · Home Office</span>
+    <span class="outfit-title">Femenino casual</span>
+  </div>
+  <div class="outfit-pieces">
+    <span class="piece-pill">Camisa blanca oversize</span>
+    <span class="piece-pill star">Falda/vestido floral crema</span>
+    <span class="piece-pill">Zapatillas blancas</span>
+    <span class="piece-pill">Gafas de sol</span>
+  </div>
+  <div class="outfit-tip">✨ Ya usaste esta combinación y te quedaba increíble. Es tu look más "tú".</div>
+</div>
+
+<div class="outfit-card">
+  <div class="outfit-header">
+    <span class="outfit-occasion occ-oficina">Viernes · Oficina</span>
+    <span class="outfit-title">Viernes cool</span>
+  </div>
+  <div class="outfit-pieces">
+    <span class="piece-pill star">Pantalón leopardo wide</span>
+    <span class="piece-pill">Blazer negro</span>
+    <span class="piece-pill">Crop top negro o blanco</span>
+    <span class="piece-pill">Zapatillas blancas</span>
+  </div>
+  <div class="outfit-tip">✨ El blazer "formaliza" el leopardo para que sea apropiado en oficina. Este look ya lo dominás.</div>
+</div>
+
+<div class="outfit-card">
+  <div class="outfit-header">
+    <span class="outfit-occasion occ-salida">Sábado · Salida</span>
+    <span class="outfit-title">Noche out</span>
+  </div>
+  <div class="outfit-pieces">
+    <span class="piece-pill">Chaleco negro</span>
+    <span class="piece-pill star">Jeans celeste wide</span>
+    <span class="piece-pill">Crop top negro</span>
+    <span class="piece-pill">Botines negros</span>
+    <span class="piece-pill">Bufanda statement</span>
+  </div>
+  <div class="outfit-tip">✨ La bufanda colorida como statement piece — ya sabés hacerlo bien. Agregá un bolso pequeño.</div>
+</div>
+
+<div class="outfit-card">
+  <div class="outfit-header">
+    <span class="outfit-occasion occ-salida">Domingo · Casual</span>
+    <span class="outfit-title">Brunch / paseo</span>
+  </div>
+  <div class="outfit-pieces">
+    <span class="piece-pill">Cardigan crema</span>
+    <span class="piece-pill star">Falda leopardo midi</span>
+    <span class="piece-pill">Camiseta blanca</span>
+    <span class="piece-pill">Converse o zapatillas blancas</span>
+  </div>
+  <div class="outfit-tip">✨ La falda leopardo con zapatillas es tu combinación favorita — elegante sin esfuerzo.</div>
+</div>
+```
+
+  </div>
+
+  <!-- SHOPPING LIST -->
+
+  <div class="shopping-section">
+    <h3 class="shopping-title">Lista de compras</h3>
+    <p class="shopping-sub">Solo 6 piezas para completar tu cápsula — en orden de prioridad</p>
+    <div class="priority-list">
+      <div class="priority-item">
+        <span class="priority-num">1</span>
+        <div class="priority-content">
+          <div class="priority-name">Blazer camel o beige</div>
+          <div class="priority-why">Multiplica tus looks por 3. Combina con todo: negro, crema, leopardo, denim.</div>
+        </div>
+        <span class="priority-price">Alta prioridad</span>
+      </div>
+      <div class="priority-item">
+        <span class="priority-num">2</span>
+        <div class="priority-content">
+          <div class="priority-name">Loafers negros o camel</div>
+          <div class="priority-why">Transforman un look casual en oficina sin perder comodidad.</div>
+        </div>
+        <span class="priority-price">Alta prioridad</span>
+      </div>
+      <div class="priority-item">
+        <span class="priority-num">3</span>
+        <div class="priority-content">
+          <div class="priority-name">Cartera estructurada mediana</div>
+          <div class="priority-why">Crema, camel o negro. El bolso gym no funciona para oficina.</div>
+        </div>
+        <span class="priority-price">Media prioridad</span>
+      </div>
+      <div class="priority-item">
+        <span class="priority-num">4</span>
+        <div class="priority-content">
+          <div class="priority-name">Vestido negro midi simple</div>
+          <div class="priority-why">El comodín que le falta a tu cápsula. Con blazer es oficina, sola es salida.</div>
+        </div>
+        <span class="priority-price">Media prioridad</span>
+      </div>
+      <div class="priority-item">
+        <span class="priority-num">5</span>
+        <div class="priority-content">
+          <div class="priority-name">Falda midi crema o beige</div>
+          <div class="priority-why">Para variar de los pantalones en oficina, look femenino instantáneo.</div>
+        </div>
+        <span class="priority-price">Cuando puedas</span>
+      </div>
+      <div class="priority-item">
+        <span class="priority-num">6</span>
+        <div class="priority-content">
+          <div class="priority-name">Collares delgados apilables</div>
+          <div class="priority-why">Ya usás bien los accesorios — sumá 2-3 cadenas doradas finas para layering.</div>
+        </div>
+        <span class="priority-price">Cuando puedas</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIPS PLACARD -->
+
+  <div class="tips-section">
+    <p class="section-label">Esta semana de turismo</p>
+    <h2 class="section-title">Cómo organizar el placard</h2>
+    <div class="tip-grid">
+      <div class="tip-card">
+        <div class="tip-card-title">Paso 1 · Editar</div>
+        <div class="tip-card-text">Sacá todo. Quedarte solo con lo que entra en la cápsula. Si no combinara con al menos 3 prendas que tenés, salió. Sin remordimientos.</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-card-title">Paso 2 · Organizar</div>
+        <div class="tip-card-text">Agrupá por categoría: pantalones juntos, blazers juntos, tops juntos. Dentro de cada grupo, por color de claro a oscuro.</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-card-title">Paso 3 · Fotos</div>
+        <div class="tip-card-text">Fotografiá cada combinación del plan de 7 looks. Guardala en un álbum del cel llamado "Outfits". La noche anterior, solo mirás el álbum.</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-card-title">Paso 4 · La regla</div>
+        <div class="tip-card-text">Si algo no entra en tu cápsula pero no querés darlo — va a una caja. En 3 meses, si no lo buscaste, ¡fue un error guardarlo!</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
